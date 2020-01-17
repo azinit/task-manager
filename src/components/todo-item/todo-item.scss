@@ -1,0 +1,22 @@
+@import '../../consts.scss';
+
+.todo-item {
+    display: flex;
+    width: 100%;
+    &_completed {
+        text-decoration: line-through;
+    }
+
+    &__id {
+        flex-basis: 8%;
+    }
+    &__title {
+        flex-basis: 50%;
+        flex-grow: 9999;
+    }
+}
+
+.cell {
+    padding: 10px 15px;
+    border: 1px solid $light;
+}
