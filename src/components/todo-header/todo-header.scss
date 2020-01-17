@@ -1,4 +1,9 @@
 .todo-header {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    &__title {
+        flex-grow: 1;
+    }
+    &__action {
+    }
 }

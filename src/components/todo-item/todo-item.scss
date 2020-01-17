@@ -3,6 +3,7 @@
 .todo-item {
     display: flex;
     width: 100%;
+    line-height: 32px;
     &_completed {
         text-decoration: line-through;
     }

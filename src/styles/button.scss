@@ -1,0 +1,45 @@
+$default: #000;
+$success: #62a60a;
+$danger: #ff1b00;
+
+@mixin btn-props($color) {
+    border: 1px solid $color;
+    background-color: #fff;
+    color: $color;
+    &:hover {
+        background-color: $color;
+        color: #fff;
+    }
+}
+
+.btn {
+    @include btn-props($default);
+    border-radius: 4px;
+    transition: .1s;
+    padding: 8px;
+    font-size: 14px;
+    outline: none;
+    &:hover {
+        cursor: pointer;
+    }
+    
+    & + & {
+        margin-left: 10px;
+    }
+
+    &_success {
+        @include btn-props($success);
+    }
+
+    &_danger {
+        @include btn-props($danger);
+    }
+
+    &_alt-color {
+        color: $default;
+    }
+
+    &_wide {
+        padding: 8px 12px;
+    }
+}
