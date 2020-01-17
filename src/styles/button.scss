@@ -33,10 +33,12 @@ $light: #f2f2f2;
         @include btn-props($success);
     }
 
-
-
     &_danger {
         @include btn-props($danger);
+    }
+
+    &_primary {
+        @include btn-props($primary);
     }
 
     &_alt-color {
@@ -49,6 +51,10 @@ $light: #f2f2f2;
 
     &_wide {
         padding: 8px 12px;
+    }
+
+    &_pos + & {
+        margin-left: 10px;
     }
     
 }
