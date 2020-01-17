@@ -8,19 +8,9 @@ interface Config {
     task: ITask;
 }
 
-enum Classes {
-    base = 'todo-item',
-    completed = 'todo-item_completed'
-}
-
 const TodoItem: React.FC<Config> = ({ task }) => {
-    const classes: string[] = [Classes.base];
-    if (task.completed) {
-        classes.push(Classes.completed);
-    }
-
     return (
-        <li className={classes.join(' ')}>
+        <li className="todo-item">
             <div className="cell todo-item__id">{ task.id} </div>
             <div className="cell todo-item__title">{ task.title} </div>
             <div className="cell todo-item__actions">
