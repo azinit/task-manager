@@ -39,6 +39,11 @@ const Fetch = {
     }
 }
 
+export function onRemoveError() {
+    console.error(`Объект не найден.
+    Но обычный клиент не сможет добиться такой ситуации, т.к. для этого придется удалить несуществующее задание :)
+    `);
+}
 export interface BaseResponse {
     success: boolean;
     error: string;

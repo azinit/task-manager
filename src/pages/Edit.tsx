@@ -6,7 +6,7 @@ import { ITask } from '../interfaces';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import Footer from '../components/footer/footer';
-import Fetch from '../server/fetch';
+import Fetch, { RemoveResponse, onRemoveError } from '../server/fetch';
 
 interface ListResponse {
     data: ITask[],
@@ -42,7 +42,13 @@ const Edit: React.FC<Config> = (props) => {
 
     function onRemove() {
         Fetch.remove(task.id)
-            .then(() => setReturnToList(true));
+            .then((response) => response.json())
+            .then((response: RemoveResponse) => {
+                if (response.success) {
+                    setReturnToList(true);
+                }
+                onRemoveError();
+            });
     }
 
     if (returnToList) {

@@ -1,4 +1,5 @@
 import React, { FormEvent, ChangeEvent } from 'react'
+import Error from '../../form/error'
 
 interface Config {
     onSubmit(event: FormEvent<HTMLFormElement>): void;
@@ -18,7 +19,7 @@ const TodoForm: React.FC<Config> = (props) => {
                     className="form-input" name="title" type="text"
                     value={props.value} onChange={props.onChange}
                 />
-                <div className="form-error">{props.error}</div>
+                <Error error={props.error}/>
             </div>
             <div className="form-group">
                 {props.btnSubmit || <button type="submit" className="btn btn_primary btn_alt-border btn_alt-color">Создать</button>}
