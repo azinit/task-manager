@@ -6,6 +6,7 @@ import TodoContext from '../context/todo-context'
 import Footer from '../components/footer/footer'
 import Modal from '../components/modal/modal'
 import TodoAdd from '../components/todo-action/todo-add/todo-add'
+import Fetch from '../server/fetch'
 
 interface ListResponse {
     data: ITask[],
@@ -32,15 +33,7 @@ const List: React.FC = () => {
     }, [])
 
     function add(title: string) {
-        fetch('https://test.megapolis-it.ru/api/list', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                title
-            }),
-        })
+        Fetch.add(title);
         // FIXME: id by server
         setTasks([...tasks, {
             title,
@@ -49,23 +42,12 @@ const List: React.FC = () => {
     }
 
     function remove(id: number) {
-        fetch(`https://test.megapolis-it.ru/api/list/${id}`, {
-            method: 'DELETE',
-        })
+        Fetch.remove(id);
         setTasks(tasks.filter(task => task.id !== id));
     }
 
     function edit(editedTask: ITask) {
-        fetch(`https://test.megapolis-it.ru/api/list/${editedTask.id}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                title: editedTask.title
-            }),
-        })
-        
+        Fetch.edit(editedTask);
         setTasks(tasks.map(task => {
             if (task.id === editedTask.id) {
                 task.title = editedTask.title;
