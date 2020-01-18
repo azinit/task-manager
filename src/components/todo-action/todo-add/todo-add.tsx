@@ -1,5 +1,4 @@
 import React, { FormEvent, ChangeEvent } from 'react'
-import './todo-add.scss'
 import Modal from '../../modal/modal'
 import TodoForm from '../todo-form/todo-form'
 
