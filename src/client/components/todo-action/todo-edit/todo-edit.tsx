@@ -34,7 +34,7 @@ const TodoEdit: React.FC<Config> = ({ task, setReturnToList }) => {
                 changed ? (
                     <button type="submit" className="btn btn_primary btn_alt-border btn_alt-color">Сохранить</button>
                 ) : (
-                    <NavLink to="/list">
+                    <NavLink to="/items">
                         <button className="btn btn_primary btn_alt-border btn_alt-color">Вернуться к списку</button>
                     </NavLink>
                 )

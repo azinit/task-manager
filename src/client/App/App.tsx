@@ -9,10 +9,10 @@ const App: React.FC = () => {
     <BrowserRouter>
       <div className="container">
         <Switch>
-          <Route path="/list" component={List} exact/>
+          <Route path="/items" component={List} exact/>
           <Route path="/edit/:id" component={Edit} exact/>
           <Route path="*" exact>
-            <Redirect to="/list"/>
+            <Redirect to="/items"/>
           </Route>
         </Switch>
       </div>

@@ -6,14 +6,7 @@ import { ITask } from '../interfaces';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import Footer from '../components/footer/footer';
-import Fetch, { RemoveResponse, onRemoveHandler } from '../../server/fetch';
-
-interface ListResponse {
-    data: ITask[],
-    length: number,
-    success: boolean,
-    error: string,
-}
+import Fetch, { RemoveResponse, onRemoveHandler, ListResponse } from '../../server/fetch';
 
 interface RequestParameters {
     match: {
@@ -52,7 +45,7 @@ const Edit: React.FC<Config> = (props) => {
     }
 
     if (returnToList) {
-        return <Redirect to="/list" />
+        return <Redirect to="/items" />
     }
     if (loading) {
         return <div className="wrapper">
