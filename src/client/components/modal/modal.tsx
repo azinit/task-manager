@@ -54,8 +54,7 @@ export default class Modal extends React.Component<Partial<Config>> {
                 {this.state.isOpen && (
                     <div className='modal' data-testid="modal">
                         <div className='modal-wrapper'>
-                            <div className="modal-header" data-testid="modal-header">
-                                <h1>{modalTitle}</h1>
+                            <div className="modal-bar">
                                 <button
                                     className="btn btn_danger btn_square modal-close"
                                     onClick={this.close}
@@ -64,8 +63,13 @@ export default class Modal extends React.Component<Partial<Config>> {
                                     <FontAwesomeIcon icon={faTimes} />
                                 </button>
                             </div>
-                            <div className="modal-body">
-                                {this.props.children}
+                            <div className="modal-content">
+                                <div className="modal-header" data-testid="modal-header">
+                                    <h1>{modalTitle}</h1>
+                                </div>
+                                <div className="modal-body">
+                                    {this.props.children}
+                                </div>
                             </div>
                         </div>
                     </div>
