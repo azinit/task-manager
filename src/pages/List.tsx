@@ -22,13 +22,13 @@ const List: React.FC = () => {
     // TODO: process server response
     // TODO: add validate alerts (success?)
     React.useEffect(() => {
-        fetch('https://test.megapolis-it.ru/api/list')
+        Fetch.list()
             .then(response => response.json())
             .then((response: ListResponse) => {
-                success = response.success
-                error = response.error
-                setTasks(response.data)
-            })
+            success = response.success
+            error = response.error
+            setTasks(response.data)
+        })
     }, [])
 
     function add(title: string) {

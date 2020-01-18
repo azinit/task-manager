@@ -32,7 +32,7 @@ const Edit: React.FC<Config> = (props) => {
     const [returnToList, setReturnToList] = React.useState(false);
 
     React.useEffect(() => {
-        fetch('https://test.megapolis-it.ru/api/list')
+        Fetch.list()
             .then(response => response.json())
             .then((response: ListResponse) => {
                 setTask(response.data.find((task) => task.id === id)!);
