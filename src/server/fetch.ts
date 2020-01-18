@@ -1,4 +1,4 @@
-import { ITask } from '../interfaces';
+import { ITask } from '../client/interfaces';
 
 // TODO: to lib (--isolatedModules: false)
 

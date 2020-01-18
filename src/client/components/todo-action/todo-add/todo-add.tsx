@@ -1,7 +1,7 @@
 import React, { FormEvent, ChangeEvent } from 'react'
 import Modal from '../../modal/modal'
 import TodoForm from '../todo-form/todo-form'
-import { AddResponse, BaseResponse } from '../../../server/fetch';
+import { BaseResponse } from '../../../../server/fetch';
 import { AddContext } from '../../../context/todo-context';
 
 interface Config extends AddContext {

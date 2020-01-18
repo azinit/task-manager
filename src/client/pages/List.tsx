@@ -5,7 +5,7 @@ import TodoList from '../components/todo-list/todo-list'
 import TodoContext from '../context/todo-context'
 import Footer from '../components/footer/footer'
 import TodoAdd from '../components/todo-action/todo-add/todo-add'
-import Fetch, { ListResponse, AddResponse, CallbackResponse } from '../server/fetch'
+import Fetch, { ListResponse, AddResponse, CallbackResponse } from '../../server/fetch'
 
 const List: React.FC = () => {
     const [tasks, setTasks] = React.useState<ITask[]>([]);

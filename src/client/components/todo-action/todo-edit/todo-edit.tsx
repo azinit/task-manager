@@ -1,8 +1,8 @@
 import React, { ChangeEvent, FormEvent } from 'react'
-import { NavLink, Redirect } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { ITask } from '../../../interfaces'
 import TodoForm from '../todo-form/todo-form';
-import Fetch from '../../../server/fetch';
+import Fetch from '../../../../server/fetch';
 
 interface Config {
     task: ITask;

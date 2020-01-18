@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import TodoContext from '../../context/todo-context';
 import {NavLink} from 'react-router-dom';
-import { onRemoveHandler } from '../../server/fetch';
+import { onRemoveHandler } from '../../../server/fetch';
 
 interface Config {
     task: ITask;

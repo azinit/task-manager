@@ -1,5 +1,5 @@
 import React from 'react'
-import { CallbackResponse } from '../server/fetch';
+import { CallbackResponse } from '../../server/fetch';
 
 export interface AddContext {
     add(title: string, callback: CallbackResponse): void;
