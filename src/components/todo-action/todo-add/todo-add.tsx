@@ -1,25 +1,35 @@
 import React, { FormEvent, ChangeEvent } from 'react'
 import Modal from '../../modal/modal'
 import TodoForm from '../todo-form/todo-form'
+import { AddResponse, BaseResponse } from '../../../server/fetch';
+import { AddContext } from '../../../context/todo-context';
 
-interface Config {
-    add(title: string): void
+interface Config extends AddContext {
 }
 
 class TodoAdd extends React.Component<Config> {
     state = {
-        value: ''
+        value: '',
+        error: ''
     }
 
     modal = React.createRef<Modal>();
 
     onSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        this.props.add(this.state.value);
-        this.modal.current?.close();
-        this.setState({
-            value: ''
-        })
+        this.props.add(this.state.value, (response: BaseResponse) => {
+            if (response.success) {
+                this.modal.current?.close();
+                this.setState({
+                    value: ''
+                })
+                return;
+            }
+    
+            this.setState({
+                error: response.error
+            })
+        });
     }
 
     onChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -40,6 +50,7 @@ class TodoAdd extends React.Component<Config> {
                     onSubmit={this.onSubmit}
                     onChange={this.onChange}
                     value={this.state.value}
+                    error={this.state.error}
                 />
             </Modal>
         )

@@ -5,44 +5,50 @@ import TodoList from '../components/todo-list/todo-list'
 import TodoContext from '../context/todo-context'
 import Footer from '../components/footer/footer'
 import TodoAdd from '../components/todo-action/todo-add/todo-add'
-import Fetch from '../server/fetch'
-
-interface ListResponse {
-    data: ITask[],
-    length: number,
-    success: boolean,
-    error: string,
-}
+import Fetch, { ListResponse, AddResponse, RemoveResponse, CallbackResponse } from '../server/fetch'
 
 const List: React.FC = () => {
     const [tasks, setTasks] = React.useState<ITask[]>([]);
-    let success = false;
-    let error = "";
 
-    // TODO: process server response
-    // TODO: add validate alerts (success?)
-    React.useEffect(() => {
+    React.useEffect(list, []);
+
+    // FIXME: return response
+    function list() {
         Fetch.list()
             .then(response => response.json())
             .then((response: ListResponse) => {
-            success = response.success
-            error = response.error
-            setTasks(response.data)
-        })
-    }, [])
+                if (response.success) {
+                    setTasks(response.data)
+                }
+            })
 
-    function add(title: string) {
-        Fetch.add(title);
-        // FIXME: id by server
-        setTasks([...tasks, {
-            title,
-            id: tasks.length,
-        }])
+    }
+    function add(title: string, callback: CallbackResponse) {
+        Fetch.add(title)
+            .then((response) => response.json())
+            .then((response: AddResponse) => {
+                if (response.success) {
+                    setTasks([...tasks, {
+                        title,
+                        id: response.id,
+                    }])
+                }
+
+                callback(response);
+            })
     }
 
-    function remove(id: number) {
-        Fetch.remove(id);
-        setTasks(tasks.filter(task => task.id !== id));
+    function remove(id: number, callback: CallbackResponse) {
+        Fetch.remove(id)
+            .then((response) => response.json())
+            .then((response) => {
+                if (response.success) {
+                    setTasks(tasks.filter(
+                        task => task.id !== id
+                    ));
+                }
+                callback(response);
+            });
     }
 
     // FIXME: TodoAdd({ add })

@@ -20,7 +20,7 @@ const TodoItem: React.FC<Config> = ({ task }) => {
                 <NavLink to={`/edit/${task.id}`} className="btn_pos">
                 <button className="btn btn_success"><FontAwesomeIcon icon={faPen} className="fa-icon" /></button>
                 </NavLink>
-                <button className="btn btn_danger" onClick={() => remove(task.id)}><FontAwesomeIcon icon={faTrashAlt} className="fa-icon" /></button>
+                <button className="btn btn_danger" onClick={() => remove(task.id, () => {})}><FontAwesomeIcon icon={faTrashAlt} className="fa-icon" /></button>
             </div>
         </li>
     )

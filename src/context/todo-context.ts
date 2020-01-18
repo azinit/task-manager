@@ -1,8 +1,15 @@
 import React from 'react'
+import { CallbackResponse } from '../server/fetch';
 
-export interface IContext {
-    add(title: string): void;
-    remove(id: number): void;
+export interface AddContext {
+    add(title: string, callback: CallbackResponse): void;
+}
+
+export interface RemoveContext {
+    remove(id: number, callback: CallbackResponse): void;
+}
+
+export interface IContext extends AddContext, RemoveContext {
 }
 
 const TodoContext = React.createContext<IContext>({
