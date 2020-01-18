@@ -34,6 +34,7 @@ const TodoEdit: React.FC<Config> = ({ task }) => {
                     <div className="form-notification"></div>
                 </div>
                 <div className="form-group">
+                
                 { changed ? (
                     <button type="submit" className="btn btn_primary btn_alt-border btn_alt-color">Сохранить</button>
                 ) : (
