@@ -56,6 +56,16 @@ const List: React.FC = () => {
     }
 
     function edit(editedTask: ITask) {
+        fetch(`https://test.megapolis-it.ru/api/list/${editedTask.id}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                title: editedTask.title
+            }),
+        })
+        
         setTasks(tasks.map(task => {
             if (task.id === editedTask.id) {
                 task.title = editedTask.title;
