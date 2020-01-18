@@ -40,14 +40,14 @@ export default class Modal extends React.Component<Partial<Config>> {
         const modalTitle = this.props.modalTitle || this.defaultConfig.modalTitle;
         return (
             <>
-                <button className={btnOpen.className} onClick={this.open}>
+                <button className={btnOpen.className} onClick={this.open} data-testid="modal-open-btn">
                     {btnOpen.caption}
                 </button>
 
                 {this.state.isOpen && (
                     <div className='modal'>
                         <div className='modal-wrapper'>
-                            <div className="modal-header">
+                            <div className="modal-header" data-testid="modal-header">
                                 <h1>{modalTitle}</h1>
                                 <button className="btn btn_danger btn_square modal-close" onClick={this.close}>
                                     <FontAwesomeIcon icon={faTimes}/>

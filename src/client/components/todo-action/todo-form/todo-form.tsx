@@ -28,18 +28,4 @@ const TodoForm: React.FC<Config> = (props) => {
     )
 }
 
-
-/*
-export function useTodoForm(defaultTitle = '', defaultChanged = false) {
-    const [value, setValue] = React.useState(defaultTitle);
-    const [changed, setChanged] = React.useState(defaultChanged);
-
-    return {
-        value,
-        setValue,
-        changed,
-        setChanged,
-    }
-}*/
-
 export default TodoForm
