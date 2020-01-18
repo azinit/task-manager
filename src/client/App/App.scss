@@ -1,6 +1,7 @@
-@import './consts.scss';
-@import './styles/button.scss';
-@import './styles/form.scss';
+@import '../styles/button.scss';
+@import '../styles/form.scss';
+
+$light: #f2f2f2;
 
 body {
   font-family: Tahoma, sans-serif;

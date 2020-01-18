@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.scss';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import List from './pages/List';
-import Edit from './pages/Edit';
+import List from '../pages/List';
+import Edit from '../pages/Edit';
 
 const App: React.FC = () => {
   return (
