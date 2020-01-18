@@ -46,18 +46,9 @@ const List: React.FC = () => {
         setTasks(tasks.filter(task => task.id !== id));
     }
 
-    function edit(editedTask: ITask) {
-        Fetch.edit(editedTask);
-        setTasks(tasks.map(task => {
-            if (task.id === editedTask.id) {
-                task.title = editedTask.title;
-            }
-            return task;
-        }))
-    }
     // FIXME: TodoAdd({ add })
     return (
-        <TodoContext.Provider value={{ add, remove, edit }}>
+        <TodoContext.Provider value={{ add, remove }}>
             <div className='wrapper'>
                 <div className="page">
                     <Header title="Список задач">

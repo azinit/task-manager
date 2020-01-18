@@ -4,7 +4,6 @@ import { listenerCount } from 'cluster';
 
 export interface IContext {
     add(title: string): void;
-    edit(editedTask: ITask): void;
     remove(id: number): void;
 }
 
@@ -16,7 +15,6 @@ export const initialTasks: ITask[] = [
 
 const TodoContext = React.createContext<IContext>({
     add(title: string) { console.log("ADD: not implemented!")},
-    edit(editedTask: ITask) { console.log("EDIT: not implemented!")},
     remove(id: number) { console.log("REMOVE: not implemented!")},
 });
 

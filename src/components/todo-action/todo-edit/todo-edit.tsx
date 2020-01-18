@@ -3,22 +3,23 @@ import { NavLink } from 'react-router-dom'
 import { ITask } from '../../../interfaces'
 import TodoContext from '../../../context/todo-context';
 import TodoForm from '../todo-form/todo-form';
+import Fetch from '../../../server/fetch';
 
 interface Config {
     task: ITask;
 }
 
 const TodoEdit: React.FC<Config> = ({ task }) => {
-    const { edit } = React.useContext(TodoContext);
     const [value, setValue] = React.useState(task.title);
     const [changed, setChanged] = React.useState(false);
 
     function onSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        console.log({ ...task, title: value });
-        edit({ ...task, title: value });
-        // @ts-ignore
-        window.location = "/list"
+        Fetch.edit({ ...task, title: value })
+            .then(() => {
+                // @ts-ignore
+                window.location = "/list"
+            })
     }
 
     function onChange(event: ChangeEvent<HTMLInputElement>) {

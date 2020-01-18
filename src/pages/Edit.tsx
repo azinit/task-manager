@@ -7,6 +7,7 @@ import { ITask } from '../interfaces';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import Footer from '../components/footer/footer';
+import Fetch from '../server/fetch';
 
 interface ListResponse {
     data: ITask[],
@@ -28,7 +29,6 @@ interface Config extends RouteComponentProps<any> {
 const Edit: React.FC<Config> = (props) => {
     const id: number = +props.match.params.id;
     const [task, setTask] = React.useState({ id: -1, title: '' })
-    const { remove } = React.useContext(TodoContext);
     const [loading, setLoading] = React.useState(true);
 
     React.useEffect(() => {
@@ -39,6 +39,14 @@ const Edit: React.FC<Config> = (props) => {
                 setLoading(false);
             })
     }, [])
+
+    function onRemove() {
+        Fetch.remove(task.id)
+            .then(() => {
+                // @ts-ignore
+                window.location = "/list"
+            });
+    }
 
     if (loading) {
         return <div className="wrapper">
@@ -57,7 +65,7 @@ const Edit: React.FC<Config> = (props) => {
         <div className='wrapper'>
             <div className="page">
                 <Header title={`Задание №${task.id}`}>
-                    <button className="btn btn_success btn_alt-color btn_wide" onClick={() => remove(task.id)}>
+                    <button className="btn btn_success btn_alt-color btn_wide" onClick={onRemove}>
                         Удалить
                         &nbsp;
                         <FontAwesomeIcon icon={faTrashAlt} className="fa-icon" />

@@ -18,7 +18,7 @@ const Fetch = {
         })
     },
     edit(task: ITask) {
-        fetch(`https://test.megapolis-it.ru/api/list/${task.id}`, {
+        return fetch(`https://test.megapolis-it.ru/api/list/${task.id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
