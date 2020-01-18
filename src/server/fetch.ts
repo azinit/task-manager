@@ -1,8 +1,13 @@
 import { ITask } from "../interfaces";
 
+const Urls = {
+    add: 'https://test.megapolis-it.ru/api/list',
+    remove(id: number) {return `https://test.megapolis-it.ru/api/list/${id}`} ,
+    edit(id: number) {return `https://test.megapolis-it.ru/api/list/${id}`} ,
+}
 const Fetch = {
     add(title: string) {
-        return fetch('https://test.megapolis-it.ru/api/list', {
+        return fetch(Urls.add, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -13,12 +18,12 @@ const Fetch = {
         })
     },
     remove(id: number) {
-        return fetch(`https://test.megapolis-it.ru/api/list/${id}`, {
+        return fetch(Urls.remove(id), {
             method: 'DELETE',
         })
     },
     edit(task: ITask) {
-        return fetch(`https://test.megapolis-it.ru/api/list/${task.id}`, {
+        return fetch(Urls.edit(task.id), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
