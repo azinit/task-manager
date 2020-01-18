@@ -8,7 +8,7 @@ import './footer.scss'
  * @component
  * @author Азин И.А.
  */
-const Footer: React.FC = () => {
+const Footer = () => {
     return (
         <div className="footer">
             © 2019 АО "Мегаполис"
