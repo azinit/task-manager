@@ -31,7 +31,7 @@ it("[opened] renders custom modal: title", () => {
   act(() => {
     const modal = React.createRef<Modal>();
     render(<Modal ref={modal} modalTitle="Custom Modal Title" />, container);
-    // modal.current!.open();
+    modal.current!.open();
   });
   expect(container.textContent).toContain("Custom Modal Title");
 })
@@ -40,7 +40,7 @@ it("[opened] renders custom modal: button", () => {
   act(() => {
     const modal = React.createRef<Modal>();
     render(<Modal ref={modal} btnOpen={{ caption: "Добавить", className: "custom-add-button super-btn btn" }} />, container);
-    // modal.current!.open();
+    modal.current!.open();
   });
   expect(container.textContent).toContain("Добавить");
   expect(container.querySelector("[data-testid='modal-open-btn']")?.className).toContain("custom-add-button super-btn btn");
@@ -54,7 +54,7 @@ it("[opened] renders custom modal: compose", () => {
         <p>I'm child component!</p>
       </Modal>
       , container);
-    // modal.current!.open();
+    modal.current!.open();
   });
   expect(container.textContent).toContain("I'm child component!");
 })

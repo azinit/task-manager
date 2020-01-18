@@ -48,9 +48,6 @@ export default class Modal extends React.Component<IProps, IState> {
 
     render() {
         const {btnOpen, modalTitle} = this.props;
-        console.log('MODALTITLE: ', modalTitle);
-        // const btnOpen = this.props.btnOpen || this.defaultIProps.btnOpen;
-        // const modalTitle = this.props.modalTitle || this.defaultIProps.modalTitle;
         return (
             <>
                 <button className={btnOpen.className} onClick={this.open} data-testid="modal-open-btn">
