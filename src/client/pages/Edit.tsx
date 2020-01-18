@@ -60,11 +60,10 @@ const Edit = (props: IProps) => {
     }
     if (loading) {
         return <div className="wrapper">
-            <React.Suspense fallback={<p>Загрузка...</p>}>
-                <Header title="Загрузка...">
+            <React.Suspense fallback={<Loader center={true}/>}>
+                <Header title="Задание №">
                 </Header>
                 <div className="main">
-                    <Loader center={true}/>
                 </div>
             </React.Suspense>
         </div>
