@@ -12,12 +12,12 @@ interface Config {
 
 /**
  * Форма для работы с моделью задачи
- * @class todo-action/todo-form/TodoForm
+ * @class components/todo-action/todo-form/todo-form
  * @extends React.Component
  * @component
  * @author Азин И.А.
  */
-const TodoForm: React.FC<Config> = (props) => {
+const TodoForm = (props: Config) => {
     return (
         <form onSubmit={props.onSubmit}>
             <div className="form-group">

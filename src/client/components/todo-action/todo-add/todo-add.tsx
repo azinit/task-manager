@@ -9,7 +9,7 @@ interface Config extends AddContext {
 
 /**
  * Форма добавления задачи
- * @class todo-action/todo-add/TodoAdd
+ * @class components/todo-action/todo-add/todo-add
  * @extends React.Component
  * @component
  * @author Азин И.А.

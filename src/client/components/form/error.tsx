@@ -8,12 +8,12 @@ interface Config {
  * Компонент ошибки
  * @remark
  * Используется для отрисовки ошибок в формах
- * @class form/Error
+ * @class components/form/error
  * @extends React.Component
  * @component
  * @author Азин И.А.
  */
-const Error: React.FC<Config> = ({ error }) => {
+const Error = ({ error }: Config) => {
     return (
         <div className="form-error">
             {error || ''}

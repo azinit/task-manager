@@ -13,12 +13,12 @@ interface Config {
 
 /**
  * Компонент задачи
- * @class todo-item/TodoItem
+ * @class components/todo-item/todo-item
  * @extends React.Component
  * @component
  * @author Азин И.А.
  */
-const TodoItem: React.FC<Config> = ({ task }) => {
+const TodoItem= ({ task }: Config) => {
     const { remove } = React.useContext(TodoContext);
     return (
         <li className="todo-item">

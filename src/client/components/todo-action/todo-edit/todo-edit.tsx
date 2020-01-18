@@ -11,12 +11,12 @@ interface Config {
 
 /**
  * Форма редактирования задачи
- * @class todo-action/todo-edit/TodoEdit
+ * @class components/todo-action/todo-edit/todo-edit
  * @extends React.Component
  * @component
  * @author Азин И.А.
  */
-const TodoEdit: React.FC<Config> = ({ task, setReturnToList }) => {
+const TodoEdit = ({ task, setReturnToList }: Config) => {
     const [value, setValue] = React.useState(task.title);
     const [changed, setChanged] = React.useState(false);
 

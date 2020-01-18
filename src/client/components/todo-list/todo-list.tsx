@@ -10,12 +10,12 @@ interface Config {
 
 /**
  * Компонент списка задач
- * @class todo-list/TodoList
+ * @class components/todo-list/todo-list
  * @extends React.Component
  * @component
  * @author Азин И.А.
  */
-const TodoList: React.FC<Config> = (props) => {
+const TodoList = (props: Config) => {
     const classes: string[] = ['todo-list'];
     
     if (props.tasks.length === 0) {

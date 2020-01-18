@@ -18,7 +18,7 @@ const TodoList = React.lazy(() => import('../components/todo-list/todo-list'));
  * @component
  * @author Азин И.А.
  */
-const List: React.FC = () => {
+const List = () => {
     const [tasks, setTasks] = React.useState<ITask[]>([]);
 
     React.useEffect(list, []);

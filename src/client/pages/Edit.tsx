@@ -19,7 +19,7 @@ interface Config extends RouteComponentProps<any> {
  * @component
  * @author Азин И.А.
  */
-const Edit: React.FC<Config> = (props) => {
+const Edit = (props: Config) => {
     const id: number = +props.match.params.id;
     const [task, setTask] = React.useState({ id: -1, title: '' })
     const [loading, setLoading] = React.useState(true);

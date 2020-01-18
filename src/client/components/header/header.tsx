@@ -1,18 +1,19 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import './header.scss'
 
 interface Config {
     title: string;
+    children: ReactNode;
 }
 
 /**
  * Хедер
- * @class Header
+ * @class components/header/header
  * @extends React.Component
  * @component
  * @author Азин И.А.
  */
-const Header: React.FC<Config> = (props) => {
+const Header = (props: Config) => {
     return (
         <div className="header">
             <div className="header__title">

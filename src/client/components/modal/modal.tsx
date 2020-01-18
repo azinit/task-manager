@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import './modal.scss'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,11 +10,12 @@ interface Config {
     };
     modalTitle: string;
     isOpen: boolean;
+    children: ReactNode;
 }
 
 /**
  * Модальное окно
- * @class Modal
+ * @class components/modal/modal
  * @extends React.Component
  * @component
  * @author Азин И.А.
