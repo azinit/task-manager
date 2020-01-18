@@ -26,6 +26,7 @@ const List: React.FC = () => {
                 setTasks(response.data)
           })
       }, [])
+
     function add(title: string) {
         setTasks([...tasks, {
             title,
@@ -34,6 +35,9 @@ const List: React.FC = () => {
     }
 
     function remove(id: number) {
+        fetch(`https://test.megapolis-it.ru/api/list/${id}`, {
+            method: 'DELETE',
+        })
         setTasks(tasks.filter(task => task.id !== id));
     }
 
