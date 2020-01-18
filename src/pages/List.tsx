@@ -2,13 +2,23 @@ import React from 'react'
 import { ITask } from '../interfaces'
 import Header from '../components/header/header'
 import TodoList from '../components/todo-list/todo-list'
-import TodoContext, { initialTasks } from '../context/todo-context'
+import TodoContext from '../context/todo-context'
 import Footer from '../components/footer/footer'
 
 
 const List: React.FC = () => {
-    const [tasks, setTasks] = React.useState<ITask[]>(initialTasks);
-
+    const [tasks, setTasks] = React.useState<ITask[]>([]);
+    
+    /*useEffect(() => {
+        fetch('https://test.megapolis-it.ru/api/list')
+          .then(response => response.json())
+          .then(todos => {
+            setTimeout(() => {
+              setTasks(todos)
+              setLoading(false)
+            }, 2000)
+          })
+      }, [])*/
     function add(title: string) {
         setTasks([...tasks, {
             title,

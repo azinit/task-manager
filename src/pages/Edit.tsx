@@ -18,7 +18,7 @@ interface RequestParameters {
 interface Config extends RouteComponentProps<any> {
 }
 
-const EditPage: React.FC<Config> = (props) => {
+const Edit: React.FC<Config> = (props) => {
     const id: number = +props.match.params.id;
     const task: ITask = initialTasks.find(task => task.id === id)!;
     const { remove } = React.useContext(TodoContext);
@@ -42,4 +42,4 @@ const EditPage: React.FC<Config> = (props) => {
     )
 }
 
-export default EditPage
+export default Edit;

@@ -14,6 +14,10 @@ enum Classes {
 
 const TodoList: React.FC<Config> = (props) => {
     const classes: string[] = [Classes.base];
+    
+    if (props.tasks.length === 0) {
+        return <p>н/д</p>
+    }
 
     return (
         <ul className={`${props.classes} ${classes.join(' ')}`}>
