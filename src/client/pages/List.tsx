@@ -65,17 +65,15 @@ const List: React.FC = () => {
     return (
         <TodoContext.Provider value={{ add, remove }}>
             <div className='wrapper'>
-                <div className="page">
-                    <Header title="Список задач">
-                        <TodoAdd add={add} />
-                    </Header>
-                    <div className="main">
-                        <React.Suspense fallback={<p>Загрузка...</p>}>
-                            <TodoList classes="app__todo-list" tasks={tasks} />
-                        </React.Suspense>
-                    </div>
-                    <Footer />
+                <Header title="Список задач">
+                    <TodoAdd add={add} />
+                </Header>
+                <div className="main">
+                    <React.Suspense fallback={<p>Загрузка...</p>}>
+                        <TodoList classes="app__todo-list" tasks={tasks} />
+                    </React.Suspense>
                 </div>
+                <Footer />
             </div>
         </TodoContext.Provider>
     )

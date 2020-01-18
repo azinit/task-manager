@@ -51,31 +51,26 @@ const Edit: React.FC<Config> = (props) => {
     if (loading) {
         return <div className="wrapper">
             <React.Suspense fallback={<Loader/>}>
-                <div className="page">
-                    <Header title="Загрузка...">
-                    </Header>
-                    <div className="main">
-                    </div>
-                </div>
+                <Header title="Загрузка...">
+                </Header>
+                <div className="main"/>
             </React.Suspense>
         </div>
     }
     // TODO: add styles!
     return (
         <div className='wrapper'>
-            <div className="page">
-                <Header title={`Задание №${task.id}`}>
-                    <button className="btn btn_success btn_alt-color btn_wide" onClick={onRemove}>
-                        Удалить
-                        &nbsp;
-                        <FontAwesomeIcon icon={faTrashAlt} className="fa-icon" />
-                    </button>
-                </Header>
-                <div className="main">
-                    <TodoEdit task={task} setReturnToList={setReturnToList} />
-                </div>
-                <Footer />
+            <Header title={`Задание №${task.id}`}>
+                <button className="btn btn_success btn_alt-color btn_wide" onClick={onRemove}>
+                    Удалить
+                    &nbsp;
+                    <FontAwesomeIcon icon={faTrashAlt} className="fa-icon" />
+                </button>
+            </Header>
+            <div className="main">
+                <TodoEdit task={task} setReturnToList={setReturnToList} />
             </div>
+            <Footer />
         </div>
     )
 }
