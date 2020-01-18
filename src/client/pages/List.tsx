@@ -69,7 +69,7 @@ const List = () => {
                     <TodoAdd add={add} />
                 </Header>
                 <div className="main">
-                    <React.Suspense fallback={<p>Загрузка...</p>}>
+                    <React.Suspense fallback={<Loader center={true} />}>
                         <TodoList classes="app__todo-list" tasks={tasks} />
                     </React.Suspense>
                 </div>
