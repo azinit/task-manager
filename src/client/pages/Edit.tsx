@@ -31,6 +31,10 @@ const Edit = (props: Config) => {
             .then((response: ListResponse) => {
                 setTask(response.data.find((task) => task.id === id)!);
                 setLoading(false);
+                // Можно использовать эту конструкцию вместо прямого `setLoading(false)`, чтобы посмотреть <Loader/>
+                /* setTimeout(() => {
+                    setLoading(false);
+                }, 5000) */ 
             })
     }, []);
 
@@ -50,10 +54,12 @@ const Edit = (props: Config) => {
     }
     if (loading) {
         return <div className="wrapper">
-            <React.Suspense fallback={<Loader/>}>
+            <React.Suspense fallback={<p>Загрузка...</p>}>
                 <Header title="Загрузка...">
                 </Header>
-                <div className="main"/>
+                <div className="main">
+                    <Loader center={true}/>
+                </div>
             </React.Suspense>
         </div>
     }

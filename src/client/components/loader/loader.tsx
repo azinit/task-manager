@@ -14,7 +14,7 @@ interface Config {
  */
 const Loader = ({ center }: Config) => {
     return (
-        <div className={`${center && 'lds-ring_center'}`}>
+        <div className={center ? 'lds-ring_center' : ''}>
             <div className={`lds-ring`}><div></div><div></div><div></div><div></div></div>
         </div>
     )

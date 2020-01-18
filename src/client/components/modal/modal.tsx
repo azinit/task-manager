@@ -27,7 +27,8 @@ export default class Modal extends React.Component<Partial<Config>> {
             caption: "Open"
         },
         modalTitle: "",
-        isOpen: false
+        isOpen: false,
+        children: <></>
     }
 
     // FIXME

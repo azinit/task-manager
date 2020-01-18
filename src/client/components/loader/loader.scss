@@ -5,11 +5,10 @@
     height: 80px;
 
     &_center {
-        display: flex;
-        justify-content: center;
-        /*position: absolute;
-        top: calc(50% - 40px);
-        left: calc(50% - 40px);*/
+        transform: translate(-50%,-50%);
+        top: 50%;
+        left: 50%;
+        position: absolute;
     }
     & div {
         box-sizing: border-box;
