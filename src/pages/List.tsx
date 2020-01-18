@@ -1,12 +1,13 @@
 import React from 'react'
 import { ITask } from '../interfaces'
-import TodoHeader from '../components/todo-header/todo-header'
+import Header from '../components/header/header'
 import TodoList from '../components/todo-list/todo-list'
-import Context, { initialTasks } from '../context/todo-context'
+import TodoContext, { initialTasks } from '../context/todo-context'
+import Footer from '../components/footer/footer'
 
 
-const ListPage: React.FC = () => {
-    const [tasks, setTasks] = React.useState<ITask[]>(initialTasks)
+const List: React.FC = () => {
+    const [tasks, setTasks] = React.useState<ITask[]>(initialTasks);
 
     function add(title: string) {
         setTasks([...tasks, {
@@ -29,13 +30,20 @@ const ListPage: React.FC = () => {
     }
 
     return (
-        <Context.Provider value={{ add, remove, edit }}>
+        <TodoContext.Provider value={{ add, remove, edit }}>
             <div className='wrapper'>
-                <TodoHeader />
-                <TodoList classes="app__todo-list" tasks={tasks} />
+                <div className="page">
+                    <Header title="Список задач">
+                        <button className="btn btn_success btn_alt-color btn_wide">Добавить</button>
+                    </Header>
+                    <div className="main">
+                        <TodoList classes="app__todo-list" tasks={tasks} />
+                    </div>
+                    <Footer/>
+                </div>
             </div>
-        </Context.Provider>
+        </TodoContext.Provider>
     )
 }
 
-export default ListPage
+export default List;

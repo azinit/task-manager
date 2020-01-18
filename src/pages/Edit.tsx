@@ -1,7 +1,12 @@
 import React from 'react'
 import { RouteComponentProps, NavLink, match } from 'react-router-dom'
-import { initialTasks } from '../context/todo-context';
+import TodoContext, { initialTasks } from '../context/todo-context';
+import TodoEdit from '../components/todo-action/todo-edit/todo-edit';
+import Header from '../components/header/header';
 import { ITask } from '../interfaces';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import Footer from '../components/footer/footer';
 
 interface RequestParameters {
     match: {
@@ -16,22 +21,23 @@ interface Config extends RouteComponentProps<any> {
 const EditPage: React.FC<Config> = (props) => {
     const id: number = +props.match.params.id;
     const task: ITask = initialTasks.find(task => task.id === id)!;
+    const { remove } = React.useContext(TodoContext);
     // TODO: add styles!
     return (
         <div className='wrapper'>
-            <h1>Задание №{task.id}</h1>
-            
-            <div className="edit-form">
-                <label htmlFor="title">Краткое описание</label>
-                <br/>
-                <input name="title" type="text" value={task.title} onChange={(event) => console.log(event.target.value)}/>
+            <div className="page">
+                <Header title={`Задание №${task.id}`}>
+                    <button className="btn btn_success btn_alt-color btn_wide" onClick={() => remove(task.id)}>
+                        Удалить
+                        &nbsp; 
+                        <FontAwesomeIcon icon={faTrashAlt} className="fa-icon" />
+                    </button>
+                </Header>
+                <div className="main">
+                    <TodoEdit task={task}/>
+                </div>
+                <Footer/>
             </div>
-            <div className="action">
-                <NavLink to="/list">
-                    <button className="btn btn_primary btn_alt-border btn_alt-color">Вернуться к списку</button>
-                </NavLink>
-            </div>
-
         </div>
     )
 }

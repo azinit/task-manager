@@ -3,7 +3,7 @@ import { ITask } from '../../interfaces';
 import './todo-item.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import Context from '../../context/todo-context';
+import TodoContext from '../../context/todo-context';
 import {NavLink} from 'react-router-dom';
 
 interface Config {
@@ -11,7 +11,7 @@ interface Config {
 }
 
 const TodoItem: React.FC<Config> = ({ task }) => {
-    const { remove, edit, add } = React.useContext(Context);
+    const { remove } = React.useContext(TodoContext);
     return (
         <li className="todo-item">
             <div className="cell todo-item__id">{task.id} </div>
