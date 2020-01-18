@@ -13,10 +13,10 @@ interface IProps {
  * @component
  * @author Азин И.А.
  */
-const Error = ({ error }: IProps) => {
+const Error = ({ error = '' }: IProps) => {
     return (
         <div className="form-error">
-            {error || ''}
+            {error}
         </div>
     )
 }
