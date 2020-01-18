@@ -1,18 +1,12 @@
 import React from 'react'
-import { RouteComponentProps, match, Redirect } from 'react-router-dom'
+import { RouteComponentProps, Redirect } from 'react-router-dom'
 import TodoEdit from '../components/todo-action/todo-edit/todo-edit';
 import Header from '../components/header/header';
-import { ITask } from '../interfaces';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import Footer from '../components/footer/footer';
 import Fetch, { RemoveResponse, onRemoveHandler, ListResponse } from '../../server/fetch';
-
-interface RequestParameters {
-    match: {
-        id: number;
-    }
-}
+import Loader from '../components/loader/loader';
 
 // TODO: strict config!
 interface Config extends RouteComponentProps<any> {
@@ -56,14 +50,14 @@ const Edit: React.FC<Config> = (props) => {
     }
     if (loading) {
         return <div className="wrapper">
-            <div className="page">
-                <Header title="Загрузка...">
-                    <p>...</p>
-                </Header>
-                <div className="main">
-                    <p>...</p>
+            <React.Suspense fallback={<Loader/>}>
+                <div className="page">
+                    <Header title="Загрузка...">
+                    </Header>
+                    <div className="main">
+                    </div>
                 </div>
-            </div>
+            </React.Suspense>
         </div>
     }
     // TODO: add styles!

@@ -1,11 +1,15 @@
 import React from 'react'
 import { ITask } from '../interfaces'
 import Header from '../components/header/header'
-import TodoList from '../components/todo-list/todo-list'
+// import TodoList from '../components/todo-list/todo-list'
 import TodoContext from '../context/todo-context'
 import Footer from '../components/footer/footer'
 import TodoAdd from '../components/todo-action/todo-add/todo-add'
 import Fetch, { ListResponse, AddResponse, CallbackResponse } from '../../server/fetch'
+import Loader from '../components/loader/loader'
+
+
+const TodoList = React.lazy(() => import('../components/todo-list/todo-list'));
 
 /**
  * Компонент страницы "Список задач"
@@ -66,7 +70,9 @@ const List: React.FC = () => {
                         <TodoAdd add={add} />
                     </Header>
                     <div className="main">
-                        <TodoList classes="app__todo-list" tasks={tasks} />
+                        <React.Suspense fallback={<p>Загрузка...</p>}>
+                            <TodoList classes="app__todo-list" tasks={tasks} />
+                        </React.Suspense>
                     </div>
                     <Footer />
                 </div>

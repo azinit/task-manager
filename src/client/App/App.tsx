@@ -1,8 +1,10 @@
 import React from 'react';
 import './App.scss';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import List from '../pages/List';
-import Edit from '../pages/Edit';
+import Loader from '../components/loader/loader';
+
+const List = React.lazy(() => import('../pages/List'));
+const Edit = React.lazy(() => import('../pages/Edit'));
 
 /**
  * Главный компонент сервиса
@@ -19,16 +21,18 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <div className="container">
-        <Switch>
-          <Route path="/items" component={List} exact/>
-          <Route path="/edit/:id" component={Edit} exact/>
-          <Route path="*" exact>
-            <Redirect to="/items"/>
-          </Route>
-        </Switch>
+        <React.Suspense fallback={<Loader center={true} />}>
+          <Switch>
+            <Route path="/items" component={List} exact/>
+            <Route path="/edit/:id" component={Edit} exact/>
+            <Route path="*" exact>
+              <Redirect to="/items"/>
+            </Route>
+          </Switch>
+        </React.Suspense>
       </div>
     </BrowserRouter>
-  );
+  )
 }
 
 export default App;
