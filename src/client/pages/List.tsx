@@ -21,10 +21,10 @@ const TodoList = React.lazy(() => import('../components/todo-list/todo-list'));
 const List = () => {
     const [tasks, setTasks] = React.useState<ITask[]>([]);
 
-    React.useEffect(list, []);
+    React.useEffect(getList, []);
 
-    function list() {
-        Fetch.list()
+    function getList() {
+        Fetch.getList()
             .then(response => response.json())
             .then((response: ListResponse) => {
                 if (response.success) {
@@ -61,7 +61,6 @@ const List = () => {
             });
     }
 
-    // FIXME: TodoAdd({ add })
     return (
         <TodoContext.Provider value={{ add, remove }}>
             <div className='wrapper'>

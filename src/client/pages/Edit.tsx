@@ -26,7 +26,7 @@ const Edit = (props: IProps) => {
     const [returnToList, setReturnToList] = React.useState(false);
 
     React.useEffect(() => {
-        Fetch.list()
+        Fetch.getList()
             .then(response => response.json())
             .then((response: ListResponse) => {
                 setTask(response.data.find((task) => task.id === id)!);
@@ -63,7 +63,6 @@ const Edit = (props: IProps) => {
             </React.Suspense>
         </div>
     }
-    // TODO: add styles!
     return (
         <div className='wrapper'>
             <Header title={`Задание №${task.id}`}>

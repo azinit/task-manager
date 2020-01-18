@@ -88,7 +88,7 @@ const Fetch = {
      * type: GET
      * Модель: Object<data: Array, length: Number, success: Bool, error: String>
      */
-    list() {
+    getList() {
         return fetch(Urls.list);
     },
     /**
