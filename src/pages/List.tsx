@@ -4,6 +4,8 @@ import Header from '../components/header/header'
 import TodoList from '../components/todo-list/todo-list'
 import TodoContext from '../context/todo-context'
 import Footer from '../components/footer/footer'
+import Modal from '../components/modal/modal'
+import TodoAdd from '../components/todo-action/todo-add/todo-add'
 
 interface ListResponse {
     data: ITask[],
@@ -55,7 +57,7 @@ const List: React.FC = () => {
             <div className='wrapper'>
                 <div className="page">
                     <Header title="Список задач">
-                        <button className="btn btn_success btn_alt-color btn_wide">Добавить</button>
+                        <TodoAdd/>
                     </Header>
                     <div className="main">
                         <TodoList classes="app__todo-list" tasks={tasks} />

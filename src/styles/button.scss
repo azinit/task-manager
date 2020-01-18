@@ -56,5 +56,10 @@ $light: #f2f2f2;
     &_pos + & {
         margin-left: 10px;
     }
+
+    &_square {
+        height: 32px;
+        width: 32px;
+    }
     
 }
