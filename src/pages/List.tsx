@@ -3,6 +3,7 @@ import { ITask } from '../interfaces'
 import Header from '../components/header/header'
 import TodoList from '../components/todo-list/todo-list'
 import TodoContext, { initialTasks } from '../context/todo-context'
+import Footer from '../components/footer/footer'
 
 
 const List: React.FC = () => {
@@ -38,6 +39,7 @@ const List: React.FC = () => {
                     <div className="main">
                         <TodoList classes="app__todo-list" tasks={tasks} />
                     </div>
+                    <Footer/>
                 </div>
             </div>
         </TodoContext.Provider>

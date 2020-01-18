@@ -6,6 +6,7 @@ import Header from '../components/header/header';
 import { ITask } from '../interfaces';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import Footer from '../components/footer/footer';
 
 interface RequestParameters {
     match: {
@@ -35,6 +36,7 @@ const EditPage: React.FC<Config> = (props) => {
                 <div className="main">
                     <TodoEdit task={task}/>
                 </div>
+                <Footer/>
             </div>
         </div>
     )
