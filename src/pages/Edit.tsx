@@ -1,6 +1,5 @@
 import React from 'react'
-import { RouteComponentProps, NavLink, match } from 'react-router-dom'
-import TodoContext, { initialTasks } from '../context/todo-context';
+import { RouteComponentProps, match } from 'react-router-dom'
 import TodoEdit from '../components/todo-action/todo-edit/todo-edit';
 import Header from '../components/header/header';
 import { ITask } from '../interfaces';

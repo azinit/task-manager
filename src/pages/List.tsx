@@ -4,7 +4,6 @@ import Header from '../components/header/header'
 import TodoList from '../components/todo-list/todo-list'
 import TodoContext from '../context/todo-context'
 import Footer from '../components/footer/footer'
-import Modal from '../components/modal/modal'
 import TodoAdd from '../components/todo-action/todo-add/todo-add'
 import Fetch from '../server/fetch'
 
