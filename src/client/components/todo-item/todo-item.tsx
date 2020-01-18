@@ -11,6 +11,13 @@ interface Config {
     task: ITask;
 }
 
+/**
+ * Компонент задачи
+ * @class todo-item/TodoItem
+ * @extends React.Component
+ * @component
+ * @author Азин И.А.
+ */
 const TodoItem: React.FC<Config> = ({ task }) => {
     const { remove } = React.useContext(TodoContext);
     return (

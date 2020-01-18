@@ -65,21 +65,41 @@ export function onRemoveHandler(response: BaseResponse) {
     }
 }
 
+const DOMAIN_API = 'https://test.megapolis-it.ru/api';
 const Urls = {
-    list: 'https://test.megapolis-it.ru/api/list',
-    add: 'https://test.megapolis-it.ru/api/list',
-    remove(id: number) { return `https://test.megapolis-it.ru/api/list/${id}` },
-    edit(id: number) { return `https://test.megapolis-it.ru/api/list/${id}` },
+    list: `${DOMAIN_API}/list`,
+    add: `${DOMAIN_API}/list`,
+    remove(id: number) { return `${DOMAIN_API}/list/${id}` },
+    edit(id: number) { return `${DOMAIN_API}/list/${id}` },
 }
 
 /**
-  * @class server/Fetch
-  * @author Азин И.А.
-  */
+ * Синглтон-контроллер по получению данных о задачах с сервера
+ * @class server/Fetch
+ * @singletone
+ * @author Азин И.А.
+ */
 const Fetch = {
+    /**
+     * Получения списка
+     * @remark
+     * Описание: Метод вернёт список всех задач
+     * url: https://test.megapolis-it.ru/api/list
+     * type: GET
+     * Модель: Object<data: Array, length: Number, success: Bool, error: String>
+     */
     list() {
         return fetch(Urls.list);
     },
+    /**
+     * Создание задачи
+     * @remark
+     * Описание: Метод создаст новую запись и вернет ее идентификатор
+     * url: https://test.megapolis-it.ru/api/list
+     * type: POST
+     * Модель(Request): Object<title: String>
+     * Модель(Response): Object<id: Number, success: Bool, error: String>
+     */
     add(title: string) {
         return fetch(Urls.add, {
             method: 'POST',
@@ -91,11 +111,28 @@ const Fetch = {
             }),
         })
     },
+    /**
+     * Удаление задачи
+     * @remark
+     * Описание: Метод удаляет запись
+     * url: https://test.megapolis-it.ru/api/list/{ID}
+     * type: DELETE
+     * Модель(Response): Object<success: Bool, error: String>
+     */
     remove(id: number) {
         return fetch(Urls.remove(id), {
             method: 'DELETE',
         });
     },
+    /**
+     * Редактирование задачи
+     * @remark
+     * Описание: Метод изменит данные
+     * url: https://test.megapolis-it.ru/api/list/{ID}
+     * type: POST
+     * Модель(Request): Object<title: String>
+     * Модель(Response): Object<success: Bool, error: String>
+     */
     edit(task: ITask) {
         return fetch(Urls.edit(task.id), {
             method: 'POST',

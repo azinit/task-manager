@@ -9,6 +9,13 @@ interface Config {
     setReturnToList(value: boolean): void;
 }
 
+/**
+ * Форма редактирования задачи
+ * @class todo-action/todo-edit/TodoEdit
+ * @extends React.Component
+ * @component
+ * @author Азин И.А.
+ */
 const TodoEdit: React.FC<Config> = ({ task, setReturnToList }) => {
     const [value, setValue] = React.useState(task.title);
     const [changed, setChanged] = React.useState(false);

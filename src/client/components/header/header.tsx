@@ -4,6 +4,14 @@ import './header.scss'
 interface Config {
     title: string;
 }
+
+/**
+ * Хедер
+ * @class Header
+ * @extends React.Component
+ * @component
+ * @author Азин И.А.
+ */
 const Header: React.FC<Config> = (props) => {
     return (
         <div className="header">

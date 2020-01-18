@@ -7,12 +7,18 @@ import Footer from '../components/footer/footer'
 import TodoAdd from '../components/todo-action/todo-add/todo-add'
 import Fetch, { ListResponse, AddResponse, CallbackResponse } from '../../server/fetch'
 
+/**
+ * Компонент страницы "Список задач"
+ * @class pages/List
+ * @extends React.Component
+ * @component
+ * @author Азин И.А.
+ */
 const List: React.FC = () => {
     const [tasks, setTasks] = React.useState<ITask[]>([]);
 
     React.useEffect(list, []);
 
-    // FIXME: return response
     function list() {
         Fetch.list()
             .then(response => response.json())

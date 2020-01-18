@@ -12,6 +12,13 @@ interface Config {
     isOpen: boolean;
 }
 
+/**
+ * Модальное окно
+ * @class Modal
+ * @extends React.Component
+ * @component
+ * @author Азин И.А.
+ */
 export default class Modal extends React.Component<Partial<Config>> {
     defaultConfig: Config = {
         btnOpen: {

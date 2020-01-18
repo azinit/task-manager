@@ -8,12 +8,15 @@ interface Config {
     classes: string;
 }
 
-enum Classes {
-    base = 'todo-list'
-}
-
+/**
+ * Компонент списка задач
+ * @class todo-list/TodoList
+ * @extends React.Component
+ * @component
+ * @author Азин И.А.
+ */
 const TodoList: React.FC<Config> = (props) => {
-    const classes: string[] = [Classes.base];
+    const classes: string[] = ['todo-list'];
     
     if (props.tasks.length === 0) {
         return <p>н/д</p>

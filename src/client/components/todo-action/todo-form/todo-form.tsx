@@ -10,6 +10,13 @@ interface Config {
     error?: string;
 }
 
+/**
+ * Форма для работы с моделью задачи
+ * @class todo-action/todo-form/TodoForm
+ * @extends React.Component
+ * @component
+ * @author Азин И.А.
+ */
 const TodoForm: React.FC<Config> = (props) => {
     return (
         <form onSubmit={props.onSubmit}>

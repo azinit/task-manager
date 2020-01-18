@@ -7,6 +7,13 @@ import { AddContext } from '../../../context/todo-context';
 interface Config extends AddContext {
 }
 
+/**
+ * Форма добавления задачи
+ * @class todo-action/todo-add/TodoAdd
+ * @extends React.Component
+ * @component
+ * @author Азин И.А.
+ */
 class TodoAdd extends React.Component<Config> {
     state = {
         value: '',

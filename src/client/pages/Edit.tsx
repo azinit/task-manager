@@ -18,6 +18,13 @@ interface RequestParameters {
 interface Config extends RouteComponentProps<any> {
 }
 
+/**
+ * Компонент страницы "Редактирование задачи"
+ * @class pages/Edit
+ * @extends React.Component
+ * @component
+ * @author Азин И.А.
+ */
 const Edit: React.FC<Config> = (props) => {
     const id: number = +props.match.params.id;
     const [task, setTask] = React.useState({ id: -1, title: '' })
