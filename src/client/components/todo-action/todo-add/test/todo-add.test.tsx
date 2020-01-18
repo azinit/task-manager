@@ -2,8 +2,8 @@ import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 
-import TodoAdd from "../../client/components/todo-action/todo-add/todo-add";
-import { CallbackResponse } from "../../server/fetch";
+import TodoAdd from "../todo-add";
+import { CallbackResponse } from "../../../../../server/fetch";
 
 function add(title: string, callback: CallbackResponse): void {
     console.log('TEST', 'TODO-ADD');

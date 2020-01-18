@@ -2,7 +2,7 @@ import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 
-import Error from "../../client/components/form/error";
+import Error from "../error";
 
 // @ts-ignore
 let container: Element = null;

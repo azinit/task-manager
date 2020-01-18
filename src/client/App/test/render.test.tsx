@@ -1,11 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import App from '../../client/App/App';
-import List from '../../client/pages/List';
-import Edit from '../../client/pages/Edit';
-import { Route, MemoryRouter, Redirect, Router, useLocation, useRouteMatch } from 'react-router-dom';
-import { match } from 'react-router';
-import { createMemoryHistory, createLocation } from 'history';
+import List from '../../pages/List';
 
 interface TextTest {
     caption: string;

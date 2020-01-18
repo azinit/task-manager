@@ -2,7 +2,7 @@ import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 
-import Modal from "../../client/components/modal/modal";
+import Modal from "../modal";
 
 // @ts-ignore
 let container: Element = null;
