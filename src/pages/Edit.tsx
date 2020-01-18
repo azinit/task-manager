@@ -1,5 +1,5 @@
 import React from 'react'
-import { RouteComponentProps, match } from 'react-router-dom'
+import { RouteComponentProps, match, Redirect } from 'react-router-dom'
 import TodoEdit from '../components/todo-action/todo-edit/todo-edit';
 import Header from '../components/header/header';
 import { ITask } from '../interfaces';
@@ -29,6 +29,7 @@ const Edit: React.FC<Config> = (props) => {
     const id: number = +props.match.params.id;
     const [task, setTask] = React.useState({ id: -1, title: '' })
     const [loading, setLoading] = React.useState(true);
+    const [returnToList, setReturnToList] = React.useState(false);
 
     React.useEffect(() => {
         fetch('https://test.megapolis-it.ru/api/list')
@@ -41,12 +42,12 @@ const Edit: React.FC<Config> = (props) => {
 
     function onRemove() {
         Fetch.remove(task.id)
-            .then(() => {
-                // @ts-ignore
-                window.location = "/list"
-            });
+            .then(() => setReturnToList(true));
     }
 
+    if (returnToList) {
+        return <Redirect to="/list" />
+    }
     if (loading) {
         return <div className="wrapper">
             <div className="page">
@@ -71,7 +72,7 @@ const Edit: React.FC<Config> = (props) => {
                     </button>
                 </Header>
                 <div className="main">
-                    <TodoEdit task={task} />
+                    <TodoEdit task={task} setReturnToList={setReturnToList} />
                 </div>
                 <Footer />
             </div>
