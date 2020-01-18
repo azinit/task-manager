@@ -5,20 +5,27 @@ import TodoList from '../components/todo-list/todo-list'
 import TodoContext from '../context/todo-context'
 import Footer from '../components/footer/footer'
 
+interface ListResponse {
+    data: ITask[],
+    length: number,
+    success: boolean,
+    error: string,
+}
 
 const List: React.FC = () => {
     const [tasks, setTasks] = React.useState<ITask[]>([]);
-    
-    /*useEffect(() => {
+    let success = false;
+    let error = "";
+
+    React.useEffect(() => {
         fetch('https://test.megapolis-it.ru/api/list')
           .then(response => response.json())
-          .then(todos => {
-            setTimeout(() => {
-              setTasks(todos)
-              setLoading(false)
-            }, 2000)
+          .then((response:ListResponse) => {
+                success = response.success
+                error = response.error
+                setTasks(response.data)
           })
-      }, [])*/
+      }, [])
     function add(title: string) {
         setTasks([...tasks, {
             title,
