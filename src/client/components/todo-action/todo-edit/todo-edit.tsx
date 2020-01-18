@@ -2,7 +2,7 @@ import React, { ChangeEvent, FormEvent } from 'react'
 import { NavLink } from 'react-router-dom'
 import { ITask } from '../../../interfaces'
 import TodoForm from '../todo-form/todo-form';
-import Fetch from '../../../../server/fetch';
+import Fetch, { onCatchHandler, BaseResponse } from '../../../../server/fetch';
 
 interface IProps {
     task: ITask;
@@ -23,7 +23,15 @@ const TodoEdit = ({ task, setReturnToList }: IProps) => {
     function onSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
         Fetch.edit({ ...task, title: value })
-            .then(() => setReturnToList(true));
+            .then((response) => response.json())
+            .then((response: BaseResponse) => {
+                if (response.success) {
+                    setReturnToList(true)
+                }
+            })
+            .catch(() => {
+                onCatchHandler('edit')
+            });;
     }
 
     function onChange(event: ChangeEvent<HTMLInputElement>) {

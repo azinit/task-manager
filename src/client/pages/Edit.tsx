@@ -5,7 +5,7 @@ import Header from '../components/header/header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import Footer from '../components/footer/footer';
-import Fetch, { RemoveResponse, onRemoveHandler, ListResponse } from '../../server/fetch';
+import Fetch, { RemoveResponse, onRemoveHandler, ListResponse, onCatchHandler } from '../../server/fetch';
 import Loader from '../components/loader/loader';
 
 // TODO: strict config!
@@ -29,13 +29,17 @@ const Edit = (props: IProps) => {
         Fetch.getList()
             .then(response => response.json())
             .then((response: ListResponse) => {
-                setTask(response.data.find((task) => task.id === id)!);
-                setLoading(false);
-                // Можно использовать эту конструкцию вместо прямого `setLoading(false)`, чтобы посмотреть <Loader/>
-                /* setTimeout(() => {
+                if (response.success) {
+                    setTask(response.data.find((task) => task.id === id)!);
                     setLoading(false);
-                }, 5000) */ 
-            })
+                    // Можно использовать эту конструкцию вместо прямого `setLoading(false)`, чтобы посмотреть <Loader/>
+                    /* setTimeout(() => {
+                        setLoading(false);
+                    }, 5000) */ 
+                }
+            }).catch(() => {
+                onCatchHandler('list')
+            });
     }, []);
 
     function onRemove() {
@@ -46,7 +50,9 @@ const Edit = (props: IProps) => {
                     setReturnToList(true);
                 }
                 onRemoveHandler(response);
-            });
+            }).catch(() => {
+                onCatchHandler('remove')
+            });;
     }
 
     if (returnToList) {

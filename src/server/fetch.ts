@@ -54,16 +54,7 @@ export interface CallbackResponse {
     (response: BaseResponse): void;
 }
 
-/**
-  * @function onRemoveHandler
-  * @author Азин И.А.
-  */
-export function onRemoveHandler(response: BaseResponse) {
-    if (!response.success) {
-        console.error(response.error) // "Объект не найден"
-        console.log('Но обычный клиент не сможет добиться такой ситуации, т.к. для этого придется удалить несуществующее задание :)')
-    }
-}
+type Operation = 'list' | 'add' | 'remove' | 'edit';
 
 const DOMAIN_API = 'https://test.megapolis-it.ru/api';
 const Urls = {
@@ -109,7 +100,7 @@ const Fetch = {
             body: JSON.stringify({
                 title
             }),
-        })
+        });
     },
     /**
      * Удаление задачи
@@ -145,5 +136,38 @@ const Fetch = {
         });
     }
 }
+
+/**
+  * @function onRemoveHandler
+  * @author Азин И.А.
+  */
+export function onRemoveHandler(response: BaseResponse) {
+    if (!response.success) {
+        console.error(response.error) // "Объект не найден"
+        console.log('Но обычный клиент не сможет добиться такой ситуации, т.к. для этого придется удалить несуществующее задание :)')
+    }
+}
+
+/**
+  * @function onCatchHandler
+  * @author Азин И.А.
+  */
+export function onCatchHandler(operation: Operation) {
+    const message = 'Внутренняя ошибка сервера.';
+    const details = () => {
+        switch (operation) {
+            case 'list':
+                return 'Попробуйте зайти на страницу позднее';
+            case 'add':
+                return 'Попробуйте добавить задачу позднее'
+            case 'edit':
+                return 'Попробуйте редактировать задачу позднее'
+            case 'remove':
+                return 'Попробуйте удалить задачу позднее';
+        }
+    }
+    alert(`${message}\r\n${details()}`)
+}
+
 
 export default Fetch;

@@ -5,7 +5,7 @@ import Header from '../components/header/header'
 import TodoContext from '../context/todo-context'
 import Footer from '../components/footer/footer'
 import TodoAdd from '../components/todo-action/todo-add/todo-add'
-import Fetch, { ListResponse, AddResponse, CallbackResponse } from '../../server/fetch'
+import Fetch, { ListResponse, AddResponse, CallbackResponse, onCatchHandler } from '../../server/fetch'
 import Loader from '../components/loader/loader'
 
 
@@ -30,7 +30,9 @@ const List = () => {
                 if (response.success) {
                     setTasks(response.data)
                 }
-            })
+            }).catch(() => {
+                onCatchHandler('list')
+            });
 
     }
     function add(title: string, callback: CallbackResponse) {
@@ -44,7 +46,9 @@ const List = () => {
                     }])
                 }
                 callback(response);
-            })
+            }).catch(() => {
+                onCatchHandler('add')
+            });
     }
 
     // test-case: remove(999, onRemoveError);
@@ -58,7 +62,9 @@ const List = () => {
                     ));
                 }
                 callback(response);
-            });
+            }).catch(() => {
+                onCatchHandler('remove')
+            });;
     }
 
     return (
