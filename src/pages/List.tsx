@@ -19,6 +19,7 @@ const List: React.FC = () => {
     let success = false;
     let error = "";
 
+    // TODO: add validate alerts (success?)
     React.useEffect(() => {
         fetch('https://test.megapolis-it.ru/api/list')
           .then(response => response.json())
@@ -30,6 +31,14 @@ const List: React.FC = () => {
       }, [])
 
     function add(title: string) {
+        console.log(title);
+        /*fetch('https://test.megapolis-it.ru/api/list', {
+            method: 'POST',
+            body: JSON.stringify({title}),
+            headers: {
+                'Content-Type': 'application-json'
+            }
+        })*/
         setTasks([...tasks, {
             title,
             id: tasks.length,
@@ -51,13 +60,13 @@ const List: React.FC = () => {
             return task;
         }))
     }
-
+    // FIXME: TodoAdd({ add })
     return (
         <TodoContext.Provider value={{ add, remove, edit }}>
             <div className='wrapper'>
                 <div className="page">
                     <Header title="Список задач">
-                        <TodoAdd/>
+                        <TodoAdd add={add}/>
                     </Header>
                     <div className="main">
                         <TodoList classes="app__todo-list" tasks={tasks} />

@@ -9,19 +9,30 @@ interface Config {
         caption: string;
     };
     modalTitle: string;
+    isOpen: boolean;
 }
 
 export default class Modal extends React.Component<Partial<Config>> {
-    state = {
-        isOpen: false
-    }
-
     defaultConfig: Config = {
         btnOpen: {
             className: "",
             caption: "Open"
         },
-        modalTitle: ""
+        modalTitle: "",
+        isOpen: false
+    }
+
+    // FIXME
+    state = {
+        isOpen: this.props.isOpen ?? this.defaultConfig.isOpen
+    }
+
+    open = () => {
+        this.setState({ isOpen: true })
+    }
+    
+    close = () => {
+        this.setState({ isOpen: false })
     }
 
     render() {
@@ -29,7 +40,7 @@ export default class Modal extends React.Component<Partial<Config>> {
         const modalTitle = this.props.modalTitle || this.defaultConfig.modalTitle;
         return (
             <>
-                <button className={btnOpen.className} onClick={() => this.setState({ isOpen: true })}>
+                <button className={btnOpen.className} onClick={this.open}>
                     {btnOpen.caption}
                 </button>
 
@@ -38,7 +49,7 @@ export default class Modal extends React.Component<Partial<Config>> {
                         <div className='modal-wrapper'>
                             <div className="modal-header">
                                 <h1>{modalTitle}</h1>
-                                <button className="btn btn_danger btn_square modal-close" onClick={() => this.setState({ isOpen: false })}>
+                                <button className="btn btn_danger btn_square modal-close" onClick={this.close}>
                                     <FontAwesomeIcon icon={faTimes}/>
                                 </button>
                             </div>
