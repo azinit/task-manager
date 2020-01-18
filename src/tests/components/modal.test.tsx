@@ -3,7 +3,6 @@ import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 
 import Modal from "../../client/components/modal/modal";
-import Error from "../../client/components/form/error";
 
 // @ts-ignore
 let container: Element = null;
@@ -66,7 +65,7 @@ it("renders state-dependent modal: closed", () => {
       </Modal>
       , container);
   });
-  expect(container.querySelector("[data-testid='modal-open-btn']")).toBe(true);
+  expect(container.querySelector("[data-testid='modal-open-btn']")).toBeVisible();
   expect(container.textContent).not.toContain("Test Modal Title");
   expect(container.textContent).not.toContain("Child Component");
 })

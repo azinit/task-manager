@@ -30,7 +30,7 @@ export default class Modal extends React.Component<Partial<Config>> {
     open = () => {
         this.setState({ isOpen: true })
     }
-    
+
     close = () => {
         this.setState({ isOpen: false })
     }
@@ -45,12 +45,16 @@ export default class Modal extends React.Component<Partial<Config>> {
                 </button>
 
                 {this.state.isOpen && (
-                    <div className='modal'>
+                    <div className='modal' data-testid="modal">
                         <div className='modal-wrapper'>
                             <div className="modal-header" data-testid="modal-header">
                                 <h1>{modalTitle}</h1>
-                                <button className="btn btn_danger btn_square modal-close" onClick={this.close}>
-                                    <FontAwesomeIcon icon={faTimes}/>
+                                <button
+                                    className="btn btn_danger btn_square modal-close"
+                                    onClick={this.close}
+                                    data-testid="modal-close-btn"
+                                >
+                                    <FontAwesomeIcon icon={faTimes} />
                                 </button>
                             </div>
                             <div className="modal-body">
