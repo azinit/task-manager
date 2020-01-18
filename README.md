@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+<img src='screenshots/screenshot_tests.png'>
+<img src='screenshots/screenshot_list_page.png'>
+<img src='screenshots/screenshot_add_empty_task.png'>
+<img src='screenshots/screenshot_edit_page.png'>
+
 ## Available Scripts
 
 In the project directory, you can run:
