@@ -1,7 +1,7 @@
 import React, { FormEvent, ChangeEvent } from 'react'
 import Error from '../../form/error'
 
-interface Config {
+interface IProps {
     onSubmit(event: FormEvent<HTMLFormElement>): void;
     onChange(event: ChangeEvent<HTMLInputElement>): void;
     value: string;
@@ -17,7 +17,7 @@ interface Config {
  * @component
  * @author Азин И.А.
  */
-const TodoForm = (props: Config) => {
+const TodoForm = (props: IProps) => {
     return (
         <form onSubmit={props.onSubmit}>
             <div className="form-group">

@@ -1,6 +1,6 @@
 import React from 'react'
 
-interface Config {
+interface IProps {
     error?: string
 }
 
@@ -13,7 +13,7 @@ interface Config {
  * @component
  * @author Азин И.А.
  */
-const Error = ({ error }: Config) => {
+const Error = ({ error }: IProps) => {
     return (
         <div className="form-error">
             {error || ''}

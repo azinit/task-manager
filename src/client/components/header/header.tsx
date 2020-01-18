@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import './header.scss'
 
-interface Config {
+interface IProps {
     title: string;
     children: ReactNode;
 }
@@ -13,7 +13,7 @@ interface Config {
  * @component
  * @author Азин И.А.
  */
-const Header = (props: Config) => {
+const Header = (props: IProps) => {
     return (
         <div className="header">
             <div className="header__title">

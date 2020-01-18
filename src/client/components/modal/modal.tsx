@@ -3,14 +3,17 @@ import './modal.scss'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-interface Config {
+interface IProps {
     btnOpen: {
         className: string,
         caption: string;
     };
     modalTitle: string;
-    isOpen: boolean;
     children: ReactNode;
+}
+
+interface IState {
+    isOpen: boolean;
 }
 
 /**
@@ -20,20 +23,19 @@ interface Config {
  * @component
  * @author Азин И.А.
  */
-export default class Modal extends React.Component<Partial<Config>> {
-    defaultConfig: Config = {
+
+export default class Modal extends React.Component<IProps, IState> {    
+    static defaultProps: IProps = {
         btnOpen: {
             className: "",
             caption: "Open"
         },
-        modalTitle: "",
-        isOpen: false,
+        modalTitle: "Modal title",
         children: <></>
     }
 
-    // FIXME
     state = {
-        isOpen: this.props.isOpen ?? this.defaultConfig.isOpen
+        isOpen: false
     }
 
     open = () => {
@@ -45,8 +47,10 @@ export default class Modal extends React.Component<Partial<Config>> {
     }
 
     render() {
-        const btnOpen = this.props.btnOpen || this.defaultConfig.btnOpen;
-        const modalTitle = this.props.modalTitle || this.defaultConfig.modalTitle;
+        const {btnOpen, modalTitle} = this.props;
+        console.log('MODALTITLE: ', modalTitle);
+        // const btnOpen = this.props.btnOpen || this.defaultIProps.btnOpen;
+        // const modalTitle = this.props.modalTitle || this.defaultIProps.modalTitle;
         return (
             <>
                 <button className={btnOpen.className} onClick={this.open} data-testid="modal-open-btn">

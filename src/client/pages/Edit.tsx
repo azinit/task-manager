@@ -9,7 +9,7 @@ import Fetch, { RemoveResponse, onRemoveHandler, ListResponse } from '../../serv
 import Loader from '../components/loader/loader';
 
 // TODO: strict config!
-interface Config extends RouteComponentProps<any> {
+interface IProps extends RouteComponentProps<any> {
 }
 
 /**
@@ -19,7 +19,7 @@ interface Config extends RouteComponentProps<any> {
  * @component
  * @author Азин И.А.
  */
-const Edit = (props: Config) => {
+const Edit = (props: IProps) => {
     const id: number = +props.match.params.id;
     const [task, setTask] = React.useState({ id: -1, title: '' })
     const [loading, setLoading] = React.useState(true);

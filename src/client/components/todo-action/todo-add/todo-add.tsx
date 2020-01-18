@@ -4,7 +4,7 @@ import TodoForm from '../todo-form/todo-form'
 import { BaseResponse } from '../../../../server/fetch';
 import { AddContext } from '../../../context/todo-context';
 
-interface Config extends AddContext {
+interface IProps extends AddContext {
 }
 
 /**
@@ -14,7 +14,7 @@ interface Config extends AddContext {
  * @component
  * @author Азин И.А.
  */
-class TodoAdd extends React.Component<Config> {
+class TodoAdd extends React.Component<IProps> {
     state = {
         value: '',
         error: ''

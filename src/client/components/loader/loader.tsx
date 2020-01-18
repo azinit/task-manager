@@ -1,7 +1,7 @@
 import React from 'react'
 import './loader.scss';
 
-interface Config {
+interface IProps {
     center?: boolean;
 }
 
@@ -12,7 +12,7 @@ interface Config {
  * @component
  * @author Азин И.А.
  */
-const Loader = ({ center }: Config) => {
+const Loader = ({ center }: IProps) => {
     return (
         <div className={center ? 'lds-ring_center' : ''}>
             <div className={`lds-ring`}><div></div><div></div><div></div><div></div></div>

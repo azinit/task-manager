@@ -7,7 +7,7 @@ import TodoContext from '../../context/todo-context';
 import {NavLink} from 'react-router-dom';
 import { onRemoveHandler } from '../../../server/fetch';
 
-interface Config {
+interface IProps {
     task: ITask;
 }
 
@@ -18,7 +18,7 @@ interface Config {
  * @component
  * @author Азин И.А.
  */
-const TodoItem= ({ task }: Config) => {
+const TodoItem= ({ task }: IProps) => {
     const { remove } = React.useContext(TodoContext);
     return (
         <li className="todo-item">

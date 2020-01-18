@@ -4,7 +4,7 @@ import { ITask } from '../../../interfaces'
 import TodoForm from '../todo-form/todo-form';
 import Fetch from '../../../../server/fetch';
 
-interface Config {
+interface IProps {
     task: ITask;
     setReturnToList(value: boolean): void;
 }
@@ -16,7 +16,7 @@ interface Config {
  * @component
  * @author Азин И.А.
  */
-const TodoEdit = ({ task, setReturnToList }: Config) => {
+const TodoEdit = ({ task, setReturnToList }: IProps) => {
     const [value, setValue] = React.useState(task.title);
     const [changed, setChanged] = React.useState(false);
 

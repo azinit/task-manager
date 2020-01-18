@@ -20,46 +20,51 @@ afterEach(() => {
   container = null;
 });
 
-it("renders default modal", () => {
+it("[opened] renders default modal", () => {
   act(() => {
     render(<Modal />, container);
   });
   expect(container.textContent).toContain("Open");
 });
 
-it("renders custom modal: title", () => {
+it("[opened] renders custom modal: title", () => {
   act(() => {
-    render(<Modal isOpen={true} modalTitle="Custom Modal Title" />, container);
+    const modal = React.createRef<Modal>();
+    render(<Modal ref={modal} modalTitle="Custom Modal Title" />, container);
+    // modal.current!.open();
   });
   expect(container.textContent).toContain("Custom Modal Title");
 })
 
-it("renders custom modal: button", () => {
+it("[opened] renders custom modal: button", () => {
   act(() => {
-    render(<Modal isOpen={true} btnOpen={{ caption: "Добавить", className: "custom-add-button super-btn btn" }} />, container);
+    const modal = React.createRef<Modal>();
+    render(<Modal ref={modal} btnOpen={{ caption: "Добавить", className: "custom-add-button super-btn btn" }} />, container);
+    // modal.current!.open();
   });
   expect(container.textContent).toContain("Добавить");
   expect(container.querySelector("[data-testid='modal-open-btn']")?.className).toContain("custom-add-button super-btn btn");
 })
 
-it("renders custom modal: compose", () => {
+it("[opened] renders custom modal: compose", () => {
   act(() => {
+    const modal = React.createRef<Modal>();
     render(
-      <Modal isOpen={true}>
+      <Modal ref={modal}>
         <p>I'm child component!</p>
       </Modal>
       , container);
+    // modal.current!.open();
   });
   expect(container.textContent).toContain("I'm child component!");
 })
 
-it("renders state-dependent modal: closed", () => {
+it("[closed] renders state-dependent modal", () => {
   act(() => {
     render(
-      <Modal 
-      isOpen={false}
-      btnOpen={{ caption: 'Add', className: 'btn btn-add btn-primary'}}
-      modalTitle="Test Modal Title"
+      <Modal
+        btnOpen={{ caption: 'Add', className: 'btn btn-add btn-primary' }}
+        modalTitle="Test Modal Title"
       >
         <p>Child Component</p>
       </Modal>

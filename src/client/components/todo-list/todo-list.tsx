@@ -3,7 +3,7 @@ import { ITask } from '../../interfaces';
 import TodoItem from '../todo-item/todo-item';
 import './todo-list.scss';
 
-interface Config {
+interface IProps {
     tasks: ITask[];
     classes: string;
 }
@@ -15,7 +15,7 @@ interface Config {
  * @component
  * @author Азин И.А.
  */
-const TodoList = (props: Config) => {
+const TodoList = (props: IProps) => {
     const classes: string[] = ['todo-list'];
     
     if (props.tasks.length === 0) {
