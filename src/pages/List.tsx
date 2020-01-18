@@ -19,26 +19,29 @@ const List: React.FC = () => {
     let success = false;
     let error = "";
 
+    // TODO: process server response
     // TODO: add validate alerts (success?)
     React.useEffect(() => {
         fetch('https://test.megapolis-it.ru/api/list')
-          .then(response => response.json())
-          .then((response:ListResponse) => {
+            .then(response => response.json())
+            .then((response: ListResponse) => {
                 success = response.success
                 error = response.error
                 setTasks(response.data)
-          })
-      }, [])
+            })
+    }, [])
 
     function add(title: string) {
-        console.log(title);
-        /*fetch('https://test.megapolis-it.ru/api/list', {
+        fetch('https://test.megapolis-it.ru/api/list', {
             method: 'POST',
-            body: JSON.stringify({title}),
             headers: {
-                'Content-Type': 'application-json'
-            }
-        })*/
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                title
+            }),
+        })
+        // FIXME: id by server
         setTasks([...tasks, {
             title,
             id: tasks.length,
@@ -54,7 +57,7 @@ const List: React.FC = () => {
 
     function edit(editedTask: ITask) {
         setTasks(tasks.map(task => {
-            if (task.id == editedTask.id) {
+            if (task.id === editedTask.id) {
                 task.title = editedTask.title;
             }
             return task;
@@ -66,12 +69,12 @@ const List: React.FC = () => {
             <div className='wrapper'>
                 <div className="page">
                     <Header title="Список задач">
-                        <TodoAdd add={add}/>
+                        <TodoAdd add={add} />
                     </Header>
                     <div className="main">
                         <TodoList classes="app__todo-list" tasks={tasks} />
                     </div>
-                    <Footer/>
+                    <Footer />
                 </div>
             </div>
         </TodoContext.Provider>
