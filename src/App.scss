@@ -1,5 +1,6 @@
 @import './consts.scss';
 @import './styles/button.scss';
+@import './styles/form.scss';
 
 body {
   font-family: Tahoma, sans-serif;
@@ -14,12 +15,19 @@ h1 {
 
 .wrapper {
   // max-width: 800px;
-  padding: 15px;
+  padding: 0 15px;
+  padding-top: 15px;
   width: 88%;
   max-width: 992px;
   margin: 0 auto;
   background-color: #fff;
   height: 100vh;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 ul {
@@ -38,4 +46,9 @@ ul {
   font-size: 12px;
   height: 12px;
   width: 12px;
+}
+
+.main {
+  // padding: 15px 0;
+  flex-grow: 999;
 }
