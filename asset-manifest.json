@@ -1,0 +1,36 @@
+{
+  "files": {
+    "static/js/0.32bbdc0e.chunk.js": "/task-manager/static/js/0.32bbdc0e.chunk.js",
+    "static/js/0.32bbdc0e.chunk.js.map": "/task-manager/static/js/0.32bbdc0e.chunk.js.map",
+    "main.css": "/task-manager/static/css/main.5fc08fcb.chunk.css",
+    "main.js": "/task-manager/static/js/main.e8d6b2c4.chunk.js",
+    "main.js.map": "/task-manager/static/js/main.e8d6b2c4.chunk.js.map",
+    "runtime-main.js": "/task-manager/static/js/runtime-main.109572f0.js",
+    "runtime-main.js.map": "/task-manager/static/js/runtime-main.109572f0.js.map",
+    "static/js/3.c6dab46f.chunk.js": "/task-manager/static/js/3.c6dab46f.chunk.js",
+    "static/js/3.c6dab46f.chunk.js.map": "/task-manager/static/js/3.c6dab46f.chunk.js.map",
+    "static/css/4.4ddad681.chunk.css": "/task-manager/static/css/4.4ddad681.chunk.css",
+    "static/js/4.0b7bac0b.chunk.js": "/task-manager/static/js/4.0b7bac0b.chunk.js",
+    "static/js/4.0b7bac0b.chunk.js.map": "/task-manager/static/js/4.0b7bac0b.chunk.js.map",
+    "static/css/5.2b239dbf.chunk.css": "/task-manager/static/css/5.2b239dbf.chunk.css",
+    "static/js/5.b2bed8e2.chunk.js": "/task-manager/static/js/5.b2bed8e2.chunk.js",
+    "static/js/5.b2bed8e2.chunk.js.map": "/task-manager/static/js/5.b2bed8e2.chunk.js.map",
+    "static/css/6.8d861f8b.chunk.css": "/task-manager/static/css/6.8d861f8b.chunk.css",
+    "static/js/6.3d9a1fef.chunk.js": "/task-manager/static/js/6.3d9a1fef.chunk.js",
+    "static/js/6.3d9a1fef.chunk.js.map": "/task-manager/static/js/6.3d9a1fef.chunk.js.map",
+    "index.html": "/task-manager/index.html",
+    "precache-manifest.3824cbba470e5b2250cfbd649dce11ed.js": "/task-manager/precache-manifest.3824cbba470e5b2250cfbd649dce11ed.js",
+    "service-worker.js": "/task-manager/service-worker.js",
+    "static/css/4.4ddad681.chunk.css.map": "/task-manager/static/css/4.4ddad681.chunk.css.map",
+    "static/css/5.2b239dbf.chunk.css.map": "/task-manager/static/css/5.2b239dbf.chunk.css.map",
+    "static/css/6.8d861f8b.chunk.css.map": "/task-manager/static/css/6.8d861f8b.chunk.css.map",
+    "static/css/main.5fc08fcb.chunk.css.map": "/task-manager/static/css/main.5fc08fcb.chunk.css.map",
+    "static/js/3.c6dab46f.chunk.js.LICENSE": "/task-manager/static/js/3.c6dab46f.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.109572f0.js",
+    "static/js/3.c6dab46f.chunk.js",
+    "static/css/main.5fc08fcb.chunk.css",
+    "static/js/main.e8d6b2c4.chunk.js"
+  ]
+}
