@@ -3,7 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 - [Requirements](https://test.megapolis-it.ru/)
-- [Demo](https://task-manager-megapolis.github.io/)
+- [Demo](https://task-manager-megapolis.github.io/) - contains HashRouter because of [problems with client-side routing on GitHub Pages](https://create-react-app.dev/docs/deployment/#notes-on-client-side-routing)
 
 <img src='screenshots/screenshot_tests.png'>
 <img src='screenshots/screenshot_list_page.png'>
