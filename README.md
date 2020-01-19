@@ -2,7 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-[Requirements](https://test.megapolis-it.ru/)
+- [Requirements](https://test.megapolis-it.ru/)
+- [Demo](https://task-manager-megapolis.github.io/)
 
 <img src='screenshots/screenshot_tests.png'>
 <img src='screenshots/screenshot_list_page.png'>
